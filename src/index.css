@@ -46,44 +46,6 @@
     --sidebar-ring: 217 91% 50%;
   }
 
-  .dark {
-    --background: 220 20% 8%;
-    --foreground: 0 0% 98%;
-
-    --card: 220 20% 12%;
-    --card-foreground: 0 0% 98%;
-
-    --popover: 220 20% 12%;
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 217 100% 50%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 213 80% 65%;
-    --secondary-foreground: 0 0% 100%;
-
-    --muted: 220 15% 20%;
-    --muted-foreground: 220 10% 65%;
-
-    --accent: 37 88% 55%;
-    --accent-foreground: 220 20% 10%;
-
-    --destructive: 350 100% 35%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 220 15% 20%;
-    --input: 220 15% 20%;
-    --ring: 217 100% 50%;
-
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217 100% 50%;
-  }
 }
 
 @layer base {
@@ -151,5 +113,22 @@
   .dot-pattern {
     background-image: radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.15) 1px, transparent 0);
     background-size: 32px 32px;
+  }
+
+  /* Screenshot Mode Utility */
+  .print-mode *,
+  .print-mode *::before,
+  .print-mode *::after {
+    animation-delay: 0s !important;
+    animation-duration: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+    animation-fill-mode: both !important;
+    scroll-behavior: auto !important;
+  }
+
+  .print-mode {
+    scroll-behavior: auto !important;
   }
 }

@@ -6,22 +6,39 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
+import { useEffect } from "react";
+import { MotionConfig } from "framer-motion";
+
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("print") === "true") {
+      document.body.classList.add("print-mode");
+    } else {
+      document.body.classList.remove("print-mode");
+    }
+  }, []);
+
+  const isPrintMode = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("print") === "true";
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <MotionConfig reducedMotion={isPrintMode ? "always" : "never"}>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </TooltipProvider>
+      </MotionConfig>
+    </QueryClientProvider>
+  );
+};
 
 export default App;
