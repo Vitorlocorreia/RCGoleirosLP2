@@ -25,7 +25,7 @@ const features = [
   },
   {
     icon: Shield,
-    title: "Prevenção de Lesões",
+    title: "Diminuição de Lesões",
     desc: "Treinamento focado em fortalecer pontos críticos e reduzir riscos de lesões.",
     color: "from-destructive to-red-600",
     shadow: "shadow-red-500/20",
@@ -131,11 +131,11 @@ const AboutSection = () => {
                 <span className="w-12 h-px bg-white/40"></span>
               </div>
               <h3 className="text-4xl md:text-5xl font-normal mb-6 font-bebas tracking-wide">
-                TREINAMENTO FUNCIONAL <br /> <span className="text-[#1c1e9a]">ESPECÍFICO DE ELITE</span>
+                TREINAMENTO FUNCIONAL <br /> <span className="text-[#1c1e9a]">ESPECÍFICO DE GOLEIROS</span>
               </h3>
               <p className="text-white/80 max-w-2xl text-lg font-light leading-relaxed border-l-4 border-accent pl-6">
                 Cada exercício é pensado para desenvolver as habilidades que você realmente usa em campo.
-                <strong className="text-white">Explosão, reflexo, agilidade e resistência</strong> em um único método validado por profissionais.
+                <strong className="text-white">Explosão, coordenação, agilidade e resistência</strong> em um único método validado por profissionais.
               </p>
             </div>
           </div>

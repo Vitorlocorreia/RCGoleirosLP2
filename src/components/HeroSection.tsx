@@ -47,7 +47,7 @@ const HeroSection = () => {
               />
               <div className="text-left">
                 <p className="text-white/90 text-sm font-bold tracking-wider">RC PERFORMANCE</p>
-                <p className="text-[#1c1e9a] text-xs font-medium tracking-wide">TREINAMENTO DE ELITE</p>
+                <p className="text-[#1c1e9a] text-xs font-medium tracking-wide">TREINAMENTO DE EXCELÊNCIA</p>
               </div>
             </motion.div>
 
@@ -103,7 +103,7 @@ const HeroSection = () => {
                   ))}
                 </div>
                 <div>
-                  <span className="block text-white font-bold text-lg leading-none">+500</span>
+                  <span className="block text-white font-bold text-lg leading-none">+1000</span>
                   <span className="text-xs text-white/60 font-medium tracking-wide">GOLEIROS TREINANDO</span>
                 </div>
               </div>

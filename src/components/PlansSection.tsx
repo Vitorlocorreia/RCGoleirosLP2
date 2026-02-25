@@ -29,8 +29,7 @@ const plans = [
     popular: false,
     features: [
       "Acesso completo à plataforma",
-      "Novos treinos toda semana",
-      "Suporte prioritário",
+      "Novos treinos mensais",
       "Comunidade exclusiva",
       "Acompanhamento de evolução",
     ],
@@ -46,11 +45,10 @@ const plans = [
     badge: "MAIS POPULAR",
     savings: "Economize 20%",
     features: [
-      "Tudo do plano Mensal",
+      "Tudo do plano mensal",
       "20% de desconto total",
-      "Avaliação de desempenho",
-      "Plano nutricional básico",
-      "Acesso a lives exclusivas",
+      "Acesso a dois e-books exclusivos para goleiros",
+      "Dicas de treino",
       "Prioridade em novidades",
     ],
     link: "#",
@@ -58,7 +56,7 @@ const plans = [
   },
   {
     name: "Anual",
-    price: "29,90",
+    price: "27,90",
     period: "/mês",
     desc: "Máximo desconto",
     popular: false,
@@ -67,10 +65,10 @@ const plans = [
     features: [
       "Tudo do plano Trimestral",
       "40% de desconto total",
-      "Consultoria individual mensal",
+      "Acesso a todos nossos e-books e revista",
+      "Curso de educativo técnico",
+      "Lives de treinos",
       "Acesso vitalício a bônus",
-      "Prioridade absoluta",
-      "Material exclusivo",
     ],
     link: "#",
     hasCoupon: true,
@@ -112,7 +110,7 @@ const PlansSection = () => {
         >
           <div className="inline-block mb-4">
             <span className="bg-[#1c1e9a]/10 text-[#1c1e9a] px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase">
-              PLANO DE ELITE
+              PLANOS
             </span>
           </div>
           <h2 className="text-headline text-foreground mb-6">
@@ -150,8 +148,8 @@ const PlansSection = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
               className={`relative rounded-tl-3xl rounded-br-3xl p-8 flex flex-col group transition-all duration-300 ${plan.popular
-                  ? "bg-white border-2 border-[#1c1e9a] shadow-[0_10px_40px_-10px_rgba(28,30,154,0.2)] scale-[1.02] lg:scale-105 z-10"
-                  : "bg-white border border-border hover:border-[#1c1e9a]/50 hover:shadow-xl"
+                ? "bg-white border-2 border-[#1c1e9a] shadow-[0_10px_40px_-10px_rgba(28,30,154,0.2)] scale-[1.02] lg:scale-105 z-10"
+                : "bg-white border border-border hover:border-[#1c1e9a]/50 hover:shadow-xl"
                 }`}
             >
               {/* Tech Corner Accents */}
@@ -161,8 +159,8 @@ const PlansSection = () => {
               {/* Badge */}
               {plan.badge && (
                 <div className={`absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide shadow-md ${plan.popular
-                    ? "bg-[#1c1e9a] text-white"
-                    : "bg-accent text-accent-foreground"
+                  ? "bg-[#1c1e9a] text-white"
+                  : "bg-accent text-accent-foreground"
                   }`}>
                   {plan.badge}
                 </div>
@@ -187,8 +185,8 @@ const PlansSection = () => {
                 </p>
                 {plan.savings && (
                   <div className={`inline-block mt-2 px-3 py-1 rounded-full text-xs font-bold ${plan.popular
-                      ? "bg-[#1c1e9a]/10 text-[#1c1e9a]"
-                      : "bg-green-100 text-green-700"
+                    ? "bg-[#1c1e9a]/10 text-[#1c1e9a]"
+                    : "bg-green-100 text-green-700"
                     }`}>
                     {plan.savings}
                   </div>
@@ -214,8 +212,8 @@ const PlansSection = () => {
                       onClick={() => applyCoupon(plan.name)}
                       disabled={!coupons[plan.name] || coupons[plan.name].length < 3}
                       className={`px-4 border-border hover:bg-[#1c1e9a] hover:text-white hover:border-[#1c1e9a] transition-colors ${appliedCoupons[plan.name]
-                          ? "bg-green-500 text-white hover:bg-green-600 border-green-500"
-                          : ""
+                        ? "bg-green-500 text-white hover:bg-green-600 border-green-500"
+                        : ""
                         }`}
                     >
                       {appliedCoupons[plan.name] ? (
@@ -239,8 +237,8 @@ const PlansSection = () => {
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-3">
                     <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${plan.popular
-                        ? "bg-[#1c1e9a]/10"
-                        : "bg-muted"
+                      ? "bg-[#1c1e9a]/10"
+                      : "bg-muted"
                       }`}>
                       <Check className={`w-3 h-3 ${plan.popular ? "text-[#1c1e9a]" : "text-muted-foreground"}`} />
                     </div>
@@ -253,8 +251,8 @@ const PlansSection = () => {
               <Button
                 asChild
                 className={`w-full h-12 font-bold uppercase tracking-wide group relative z-10 shadow-lg hover:shadow-xl transition-all ${plan.popular || plan.name === "Trial"
-                    ? "bg-[#1c1e9a] text-white hover:bg-[#1c1e9a]/90"
-                    : "bg-white text-foreground border-2 border-border hover:border-[#1c1e9a] hover:text-[#1c1e9a]"
+                  ? "bg-[#1c1e9a] text-white hover:bg-[#1c1e9a]/90"
+                  : "bg-white text-foreground border-2 border-border hover:border-[#1c1e9a] hover:text-[#1c1e9a]"
                   }`}
               >
                 <a href={plan.link} className="flex items-center justify-center gap-2">

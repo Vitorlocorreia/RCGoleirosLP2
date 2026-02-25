@@ -12,24 +12,24 @@ import { InfiniteSlider } from "@/components/ui/infinite-slider";
 const trainers = [
   {
     name: "Ricardo Costa",
-    role: "Head Coach",
-    image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=2070&auto=format&fit=crop",
-    specialties: ["Alta Performance", "Metodologia RC"],
-    description: "Criador do Método RC. +10 anos formando goleiros de elite.",
+    role: "Criador do Método RC",
+    image: "/images/trainers/ricardo-costa.jpg",
+    description: "+15 anos formando goleiros de alto nível.",
+    instagram: "@rodrigocesar.rc",
   },
   {
-    name: "Lucas Mendes",
-    role: "Prep. Físico",
-    image: "https://images.unsplash.com/photo-1548690312-e3b507d8c110?q=80&w=1974&auto=format&fit=crop",
-    specialties: ["Potência", "Prevenção"],
-    description: "Especialista em biomecânica e desenvolvimento de potência.",
+    name: "Pablo Cavalcanti",
+    role: "Coordenador",
+    image: "/images/trainers/lucas-mendes.jpg",
+    description: "Expert em treinamento funcional e fisiologia do exercício.",
+    instagram: "@pablocavalcanti21",
   },
   {
-    name: "André Silva",
-    role: "Fisiologista",
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=2070&auto=format&fit=crop",
-    specialties: ["Recovery", "Dados"],
-    description: "Monitoramento de carga e estratégias de recuperação.",
+    name: "Júlio Pereira",
+    role: "Diretor",
+    image: "/images/trainers/andre-silva.jpg",
+    description: "Especialista em Gestão e Administração Esportiva.",
+    instagram: "@juliopereiraa_",
   },
 ];
 
@@ -47,7 +47,7 @@ const TrainersSection = () => {
         <img
           src={trainer.image}
           alt={trainer.name}
-          className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+          className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
         />
         {/* Overlay Gradient */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#1c1e9a]/90 via-transparent to-transparent opacity-90"></div>
@@ -69,18 +69,19 @@ const TrainersSection = () => {
           {trainer.description}
         </p>
 
-        <div className="flex flex-wrap gap-2 mt-auto">
-          {trainer.specialties.map((tech) => (
-            <span key={tech} className="text-[10px] font-bold uppercase tracking-wider bg-[#1c1e9a]/5 text-[#1c1e9a] border border-[#1c1e9a]/10 px-3 py-1 rounded-sm">
-              {tech}
-            </span>
-          ))}
-        </div>
 
-        {/* Social Icons (Mock) */}
-        <div className="flex gap-4 mt-6 pt-6 border-t border-border opacity-60 group-hover:opacity-100 transition-opacity">
-          <Instagram className="w-5 h-5 hover:text-[#1c1e9a] cursor-pointer transition-colors" />
-          <Linkedin className="w-5 h-5 hover:text-[#1c1e9a] cursor-pointer transition-colors" />
+
+        {/* Social Icons */}
+        <div className="mt-6 pt-6 border-t border-border opacity-70 group-hover:opacity-100 transition-opacity">
+          <a
+            href={`https://instagram.com/${trainer.instagram.replace('@', '')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-muted-foreground hover:text-[#1c1e9a] transition-colors group/link"
+          >
+            <Instagram className="w-5 h-5 group-hover/link:scale-110 transition-transform" />
+            <span className="text-sm font-semibold tracking-tight">{trainer.instagram}</span>
+          </a>
         </div>
       </div>
     </div>
@@ -148,9 +149,9 @@ const TrainersSection = () => {
 
           <InfiniteSlider gap={60} duration={30} durationOnHover={150}>
             {[
-              { value: "10+", label: "Anos de Elite" },
+              { value: "15+", label: "Anos de Experiência" },
               { value: "100%", label: "Certificado" },
-              { value: "500+", label: "Atletas" },
+              { value: "1000+", label: "Atletas" },
               { value: "50+", label: "Clubes" },
             ].map((stat, i) => (
               <div key={i} className="flex items-center gap-12 px-4 select-none">

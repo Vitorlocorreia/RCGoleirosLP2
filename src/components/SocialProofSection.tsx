@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { TrendingUp, Users, Award, Target } from "lucide-react";
 
 const stats = [
-  { icon: Users, value: "500+", label: "Goleiros Treinando" },
+  { icon: Users, value: "1000+", label: "Goleiros Treinando" },
   { icon: TrendingUp, value: "95%", label: "Satisfação" },
-  { icon: Award, value: "3+", label: "Anos de XP" },
-  { icon: Target, value: "1k+", label: "Treinos" },
+  { icon: Award, value: "15+", label: "Anos de XP" },
+  { icon: Target, value: "10000+", label: "Treinos" },
 ];
 
 const SocialProofSection = () => {

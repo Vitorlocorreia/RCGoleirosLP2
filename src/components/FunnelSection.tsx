@@ -42,9 +42,7 @@ const FunnelSection = () => {
   };
 
   const getRecommendedPlan = () => {
-    if (answers[0] === "Iniciante") return { plan: "Trial", reason: "Comece experimentando o método com segurança por apenas R$ 0,99." };
-    if (answers[0] === "Profissional") return { plan: "Anual", reason: "Máximo compromisso, máximo resultado com 40% de desconto." };
-    return { plan: "Trimestral", reason: "Melhor custo-benefício para evoluir consistentemente." };
+    return { plan: "Trimestral", reason: "Melhor custo-benefício para evoluir consistentemente com acesso completo à metodologia." };
   };
 
   const reset = () => {
