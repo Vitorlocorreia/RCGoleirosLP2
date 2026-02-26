@@ -11,7 +11,7 @@ import { InfiniteSlider } from "@/components/ui/infinite-slider";
 
 const trainers = [
   {
-    name: "Ricardo Costa",
+    name: "Rodrigo César",
     role: "Criador do Método RC",
     image: "/images/trainers/ricardo-costa.jpg",
     description: "+15 anos formando goleiros de alto nível.",
