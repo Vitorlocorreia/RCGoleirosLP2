@@ -12,7 +12,7 @@ const features = [
   {
     icon: Zap,
     title: "Performance Real",
-    desc: "Resultados mensuráveis em saltos, reflexos e resistência. Veja sua evolução semana a semana.",
+    desc: "Resultados mensuráveis em saltos, velocidade e resistência. Veja sua evolução semana a semana.",
     color: "from-accent to-yellow-500",
     shadow: "shadow-orange-500/20",
   },

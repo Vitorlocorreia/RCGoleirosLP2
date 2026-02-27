@@ -12,9 +12,9 @@ import { InfiniteSlider } from "@/components/ui/infinite-slider";
 const trainers = [
   {
     name: "Rodrigo César",
-    role: "Criador do Método RC",
+    role: "Presidente",
     image: "/images/trainers/ricardo-costa.jpg",
-    description: "+15 anos formando goleiros de alto nível.",
+    description: "Criador do Método RC. +15 anos formando goleiros de alto nível.",
     instagram: "@rodrigocesar.rc",
   },
   {

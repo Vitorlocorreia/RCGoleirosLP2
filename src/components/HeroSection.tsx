@@ -14,8 +14,8 @@ const HeroSection = () => {
           className="w-full h-full object-cover"
           style={{ backgroundColor: '#67A2A6' }}
         />
-        {/* Cinematic Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
+        {/* Cinematic Gradient Overlay - Stronger on the left for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/60 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/30" />
         {/* Vignette Effect */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.6)_100%)]" />
@@ -47,7 +47,7 @@ const HeroSection = () => {
               />
               <div className="text-left">
                 <p className="text-white/90 text-sm font-bold tracking-wider">RC PERFORMANCE</p>
-                <p className="text-[#1c1e9a] text-xs font-medium tracking-wide">TREINAMENTO DE EXCELÊNCIA</p>
+                <p className="bg-gradient-to-tr from-[#1c1e9a] via-blue-500 to-white text-transparent bg-clip-text text-xs font-bold tracking-wide drop-shadow-sm">TREINAMENTO DE EXCELÊNCIA</p>
               </div>
             </motion.div>
 
@@ -55,7 +55,7 @@ const HeroSection = () => {
             <h1 className="text-display text-white mb-6 leading-[0.9] drop-shadow-2xl">
               TREINAMENTO
               <br />
-              <span className="text-[#1c1e9a]">
+              <span className="bg-gradient-to-tr from-[#1c1e9a] via-blue-500 to-white text-transparent bg-clip-text font-black italic tracking-wider filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)] pr-2">
                 ESPECÍFICO
               </span>
               <br />
