@@ -1,3 +1,4 @@
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { TrendingUp, Users, Award, Target } from "lucide-react";
 
@@ -9,8 +10,60 @@ const stats = [
 ];
 
 const SocialProofSection = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isSectionInView, setIsSectionInView] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+
+  const testimonials = [
+    {
+      path: "/videos/202603102107.mp4",
+      title: "BARATA",
+      student: "DEPOIMENTO"
+    },
+    {
+      path: "/videos/WhatsApp Video 2026-03-09 at 20.17.38.mp4",
+      title: "BERNARDO",
+      student: "DEPOIMENTO"
+    },
+    {
+      path: "/videos/WhatsApp Video 2026-03-10 at 08.21.27.mp4",
+      title: "LEO SOUZA",
+      student: "DEPOIMENTO"
+    }
+  ];
+
+  // Logic to track section visibility
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsSectionInView(entry.isIntersecting);
+      },
+      { threshold: 0.2 } // Section must be 20% visible
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  // Logic to handle auto-play/pause based on activeIndex and section visibility
+  useEffect(() => {
+    videoRefs.current.forEach((video, idx) => {
+      if (video) {
+        if (idx === activeIndex && isSectionInView) {
+          video.play().catch(() => {
+            console.log("Autoplay blocked (due to sound/permissions)");
+          });
+        } else {
+          video.pause();
+        }
+      }
+    });
+  }, [activeIndex, isSectionInView]);
+
   return (
-    <section className="py-24 md:py-32 px-4 bg-muted/10 relative overflow-hidden">
+    <section ref={sectionRef} className="py-24 md:py-32 px-4 bg-muted/10 relative overflow-hidden">
       {/* Background Texture - Tactical Dot Grid */}
       <div className="absolute inset-0 opacity-[0.03]" style={{
         backgroundImage: "radial-gradient(#1c1e9a 1px, transparent 1px)",
@@ -48,19 +101,76 @@ const SocialProofSection = () => {
         </div>
 
 
-        {/* Video Feature */}
+        {/* Video Testimonials Container */}
         <div className="mt-20">
-          <div className="bg-[#1c1e9a] rounded-3xl p-1 md:p-2 shadow-2xl skew-y-1 transform hover:skew-y-0 transition-transform duration-700">
-            <div className="bg-background rounded-[20px] overflow-hidden relative aspect-video md:aspect-[21/9] flex items-center justify-center border-4 border-white">
-              <div className="absolute inset-0 bg-muted/20"></div>
-              <div className="text-center relative z-10">
-                <div className="w-16 h-16 bg-[#1c1e9a] rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg cursor-pointer hover:scale-110 transition-transform">
-                  <div className="w-0 h-0 border-t-[8px] border-t-transparent border-l-[16px] border-l-white border-b-[8px] border-b-transparent ml-1"></div>
+          {/* Mobile Carousel / Desktop Grid */}
+          <div
+            ref={scrollRef}
+            onScroll={(e) => {
+              const element = e.currentTarget;
+              const index = Math.round(element.scrollLeft / (element.clientWidth * 0.85));
+              if (index !== activeIndex) setActiveIndex(index);
+            }}
+            className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar md:grid md:grid-cols-3 gap-6 py-6 pb-8 md:pb-6 -mx-4 px-4 md:mx-0 md:px-4 scroll-smooth"
+            style={{ WebkitOverflowScrolling: "touch" }}
+          >
+            {testimonials.map((video, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="group relative min-w-[85vw] md:min-w-0 snap-center transition-all duration-300"
+              >
+                <div className={`rounded-3xl p-1 shadow-2xl transform transition-all duration-500 
+                  ${idx === activeIndex
+                    ? "bg-[#1c1e9a] scale-[1.02] md:bg-[#1c1e9a]/20 md:scale-100 md:hover:bg-[#1c1e9a] md:hover:scale-[1.02]"
+                    : "bg-[#1c1e9a]/20 scale-100 hover:bg-[#1c1e9a]/60 md:hover:scale-[1.02] md:hover:bg-[#1c1e9a]"
+                  }`}
+                >
+                  <div className="bg-background rounded-[22px] overflow-hidden relative aspect-[9/16] md:aspect-video flex items-center justify-center border-2 border-white/10 text-left">
+                    <video
+                      ref={(el) => (videoRefs.current[idx] = el)}
+                      src={video.path}
+                      className="w-full h-full object-cover"
+                      playsInline
+                      controls
+                      loop
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none transition-all duration-300 group-hover:pb-10 md:group-hover:opacity-0">
+                      <h3 className="text-white font-bebas text-2xl tracking-wide uppercase">{video.title}</h3>
+                      <p className="text-white/70 text-[10px] font-medium uppercase tracking-widest">{video.student}</p>
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-bold text-foreground">VER DEPOIMENTO EM VÍDEO</h3>
-                <p className="text-muted-foreground">Assista a evolução real dos nossos alunos</p>
-              </div>
-            </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Mobile Pagination Dots */}
+          <div className="flex justify-center gap-3 mt-8 md:hidden">
+            {testimonials.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => {
+                  if (scrollRef.current) {
+                    const scrollAmount = scrollRef.current.clientWidth * 0.85 * i;
+                    scrollRef.current.scrollTo({ left: scrollAmount, behavior: "smooth" });
+                  }
+                }}
+                className="relative h-2 rounded-full transition-all duration-500 overflow-hidden"
+                style={{ width: i === activeIndex ? "32px" : "8px" }}
+              >
+                <div className={`absolute inset-0 transition-colors duration-500 ${i === activeIndex ? "bg-[#1c1e9a]" : "bg-[#1c1e9a]/20"}`} />
+                {i === activeIndex && (
+                  <motion.div
+                    layoutId="activeDotHighlight"
+                    className="absolute inset-0 bg-[#1c1e9a]"
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
+                )}
+              </button>
+            ))}
           </div>
         </div>
 
