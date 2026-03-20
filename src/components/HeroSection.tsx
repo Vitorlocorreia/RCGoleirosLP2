@@ -77,7 +77,7 @@ const HeroSection = () => {
                 onClick={() => document.getElementById('planos')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 <span className="relative z-10 flex items-center">
-                  COMEÇAR POR R$ 0,99
+                  COMEÇAR AGORA
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </span>
                 <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 transform skew-y-12" />

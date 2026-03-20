@@ -6,22 +6,6 @@ import { useState } from "react";
 
 const plans = [
   {
-    name: "Trial",
-    price: "0,99",
-    period: "por 7 dias",
-    desc: "Teste o método",
-    popular: false,
-    badge: "OFERTA ESPECIAL",
-    features: [
-      "Acesso completo por 7 dias",
-      "Todos os treinos específicos",
-      "Suporte via WhatsApp",
-      "Cancele quando quiser",
-    ],
-    link: "#",
-    hasCoupon: false,
-  },
-  {
     name: "Mensal",
     price: "49,90",
     period: "/mês",
@@ -114,11 +98,11 @@ const PlansSection = () => {
             </span>
           </div>
           <h2 className="text-headline text-foreground mb-6">
-            COMECE POR{" "}
-            <span className="text-[#1c1e9a] font-bebas text-6xl ml-2">R$ 0,99</span>
+            ESCOLHA SEU{" "}
+            <span className="text-[#1c1e9a] font-bebas text-6xl ml-2">PLANO</span>
           </h2>
           <p className="text-body-lg text-muted-foreground max-w-2xl mx-auto font-light">
-            Teste o método por 7 dias completos. Depois escolha o plano que melhor se encaixa nos seus objetivos.
+            Escolha o plano que melhor se encaixa nos seus objetivos e inicie seu treinamento.
           </p>
 
           {/* Trust Signals */}
@@ -139,7 +123,7 @@ const PlansSection = () => {
         </motion.div>
 
         {/* Plans Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {plans.map((plan, i) => (
             <motion.div
               key={plan.name}
