@@ -105,10 +105,6 @@ const SocialProofSection = () => {
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                     />
-                    <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none transition-all duration-300 group-hover:pb-10 md:group-hover:opacity-0">
-                      <h3 className="text-white font-bebas text-2xl tracking-wide uppercase">{video.title}</h3>
-                      <p className="text-white/70 text-[10px] font-medium uppercase tracking-widest">{video.student}</p>
-                    </div>
                   </div>
                 </div>
               </motion.div>

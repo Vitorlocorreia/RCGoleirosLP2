@@ -9,8 +9,8 @@ const HeroSection = () => {
       {/* Background Image with Enhanced Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.pexels.com/photos/29719231/pexels-photo-29719231.jpeg"
-          alt="Professional goalkeeper making a diving save by Franco Monsalvo on Pexels"
+          src="/images/hero-training.jpg"
+          alt="Goleiro profissional realizando treinamento de agilidade e alongamento"
           className="w-full h-full object-cover"
           style={{ backgroundColor: '#67A2A6' }}
         />
@@ -139,7 +139,7 @@ const HeroSection = () => {
               <div className="aspect-video relative">
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10 pointer-events-none" />
                 <iframe
-                  src="https://www.youtube.com/embed/wLG-kb5-mp4?controls=0&rel=0&modestbranding=1"
+                  src="https://www.youtube.com/embed/fd4AvkBFhlc?controls=0&rel=0&modestbranding=1"
                   title="RC Performance - Boas Vindas"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
