@@ -38,6 +38,12 @@ const FunnelSection = () => {
       setStep(step + 1);
     } else {
       setShowResult(true);
+      // Salva as informações no localStorage para a página de obrigado
+      localStorage.setItem("funnelData", JSON.stringify({
+        nivel: next[0],
+        idade: next[1],
+        foco: next[2]
+      }));
     }
   };
 

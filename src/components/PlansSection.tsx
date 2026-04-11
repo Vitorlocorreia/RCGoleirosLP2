@@ -17,7 +17,7 @@ const plans = [
       "Comunidade exclusiva",
       "Acompanhamento de evolução",
     ],
-    link: "#",
+    link: "https://kiwify.app/do5YCiE",
     hasCoupon: true,
   },
   {
@@ -35,7 +35,7 @@ const plans = [
       "Dicas de treino",
       "Prioridade em novidades",
     ],
-    link: "#",
+    link: "https://pay.kiwify.com.br/kzskLkv",
     hasCoupon: true,
   },
   {
@@ -54,7 +54,7 @@ const plans = [
       "Lives de treinos",
       "Acesso vitalício a bônus",
     ],
-    link: "#",
+    link: "https://pay.kiwify.com.br/JARA7kJ",
     hasCoupon: true,
   },
 ];
