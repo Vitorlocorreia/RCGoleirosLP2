@@ -34,6 +34,7 @@ const features = [
 ];
 
 const gkImages = [
+  "/imgGk/gk-botafogo.jpg",
   "/imgGk/WhatsApp Image 2026-03-10 at 21.23.46.jpeg",
   "/imgGk/WhatsApp Image 2026-03-10 at 21.23.47 (1).jpeg",
   "/imgGk/WhatsApp Image 2026-03-10 at 21.23.47 (2).jpeg",
