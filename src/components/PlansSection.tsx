@@ -64,7 +64,6 @@ const PLANS: readonly Plan[] = [
       "Tudo do plano Trimestral",
       "40% de desconto total",
       "Acesso a todos nossos e-books e revista",
-      "Curso de educativo técnico",
       "Lives de treinos",
       "Acesso vitalício a bônus",
     ],
@@ -73,9 +72,9 @@ const PLANS: readonly Plan[] = [
 ] as const;
 
 const TRUST_SIGNALS = [
-  { icon: Shield,   label: "Cancele quando quiser"  },
-  { icon: Check,    label: "Garantia de satisfação"  },
-  { icon: Sparkles, label: "Acesso imediato"         },
+  { icon: Shield, label: "Cancele quando quiser" },
+  { icon: Check, label: "Garantia de satisfação" },
+  { icon: Sparkles, label: "Acesso imediato" },
 ] as const;
 
 const MIN_COUPON_LENGTH = 3;
@@ -102,9 +101,8 @@ function CouponInput({ planName, value, applied, onChange, onApply }: CouponInpu
             value={value}
             onChange={(e) => onChange(e.target.value.toUpperCase())}
             aria-label={`Cupom de desconto para o plano ${planName}`}
-            className={`pl-10 h-10 font-medium bg-muted/20 border-border focus:border-[#1c1e9a] ${
-              applied ? "border-green-500" : ""
-            }`}
+            className={`pl-10 h-10 font-medium bg-muted/20 border-border focus:border-[#1c1e9a] ${applied ? "border-green-500" : ""
+              }`}
           />
         </div>
         <Button
@@ -113,9 +111,8 @@ function CouponInput({ planName, value, applied, onChange, onApply }: CouponInpu
           onClick={onApply}
           disabled={value.length < MIN_COUPON_LENGTH}
           aria-label="Aplicar cupom"
-          className={`px-4 border-border hover:bg-[#1c1e9a] hover:text-white hover:border-[#1c1e9a] transition-colors ${
-            applied ? "bg-green-500 text-white hover:bg-green-600 border-green-500" : ""
-          }`}
+          className={`px-4 border-border hover:bg-[#1c1e9a] hover:text-white hover:border-[#1c1e9a] transition-colors ${applied ? "bg-green-500 text-white hover:bg-green-600 border-green-500" : ""
+            }`}
         >
           {applied ? <Check className="w-4 h-4" aria-hidden /> : "OK"}
         </Button>
@@ -199,11 +196,10 @@ const PlansSection = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
               aria-label={`Plano ${plan.name}`}
-              className={`relative rounded-tl-3xl rounded-br-3xl p-8 flex flex-col group transition-all duration-300 ${
-                plan.popular
+              className={`relative rounded-tl-3xl rounded-br-3xl p-8 flex flex-col group transition-all duration-300 ${plan.popular
                   ? "bg-white border-2 border-[#1c1e9a] shadow-[0_10px_40px_-10px_rgba(28,30,154,0.2)] scale-[1.02] lg:scale-105 z-10"
                   : "bg-white border border-border hover:border-[#1c1e9a]/50 hover:shadow-xl"
-              }`}
+                }`}
             >
               {/* Acentos de canto decorativos */}
               <div aria-hidden className={`absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 rounded-tl-3xl transition-colors ${plan.popular ? "border-[#1c1e9a]" : "border-gray-200 group-hover:border-[#1c1e9a]"}`} />
@@ -212,9 +208,8 @@ const PlansSection = () => {
               {/* Badge */}
               {plan.badge && (
                 <div
-                  className={`absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide shadow-md ${
-                    plan.popular ? "bg-[#1c1e9a] text-white" : "bg-accent text-accent-foreground"
-                  }`}
+                  className={`absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide shadow-md ${plan.popular ? "bg-[#1c1e9a] text-white" : "bg-accent text-accent-foreground"
+                    }`}
                 >
                   {plan.badge}
                 </div>
@@ -237,9 +232,8 @@ const PlansSection = () => {
                 <p className="text-sm mt-1 text-muted-foreground font-medium">{plan.period}</p>
                 {plan.savings && (
                   <div
-                    className={`inline-block mt-2 px-3 py-1 rounded-full text-xs font-bold ${
-                      plan.popular ? "bg-[#1c1e9a]/10 text-[#1c1e9a]" : "bg-green-100 text-green-700"
-                    }`}
+                    className={`inline-block mt-2 px-3 py-1 rounded-full text-xs font-bold ${plan.popular ? "bg-[#1c1e9a]/10 text-[#1c1e9a]" : "bg-green-100 text-green-700"
+                      }`}
                   >
                     {plan.savings}
                   </div>
@@ -261,9 +255,8 @@ const PlansSection = () => {
                   <li key={feature} className="flex items-start gap-3">
                     <div
                       aria-hidden
-                      className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
-                        plan.popular ? "bg-[#1c1e9a]/10" : "bg-muted"
-                      }`}
+                      className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${plan.popular ? "bg-[#1c1e9a]/10" : "bg-muted"
+                        }`}
                     >
                       <Check className={`w-3 h-3 ${plan.popular ? "text-[#1c1e9a]" : "text-muted-foreground"}`} />
                     </div>
@@ -275,11 +268,10 @@ const PlansSection = () => {
               {/* CTA */}
               <Button
                 asChild
-                className={`w-full h-12 font-bold uppercase tracking-wide group relative shadow-lg hover:shadow-xl transition-all ${
-                  plan.popular
+                className={`w-full h-12 font-bold uppercase tracking-wide group relative shadow-lg hover:shadow-xl transition-all ${plan.popular
                     ? "bg-[#1c1e9a] text-white hover:bg-[#1c1e9a]/90"
                     : "bg-white text-foreground border-2 border-border hover:border-[#1c1e9a] hover:text-[#1c1e9a]"
-                }`}
+                  }`}
               >
                 <a
                   href={plan.link}

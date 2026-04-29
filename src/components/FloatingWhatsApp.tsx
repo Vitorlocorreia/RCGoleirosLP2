@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const FloatingWhatsApp = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const phoneNumber = "5581998183444";
+  const phoneNumber = "5584921674972";
   const message = "Olá! Gostaria de saber mais sobre o treinamento RC Performance.";
 
   const handleClick = () => {

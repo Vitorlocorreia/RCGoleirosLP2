@@ -11,18 +11,18 @@ const LocationSection = () => {
     {
       icon: MapPin,
       title: "HQ / RECIFE",
-      content: "R. José da Silva Lucena, 400\nBoa Viagem, Recife - PE",
-      details: "CEP: 51160-350",
+      content: "R. José da Silva Lucena, N400\nBoa Viagem, Recife - PE",
+      details: "CEP: 51160-350, Brasil",
       action: "Traçar Rota",
       link: `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}`,
     },
     {
       icon: Phone,
       title: "CONTATO DIRETO",
-      content: "+55 81 99818-3444",
+      content: "+55 84 92167-4972",
       details: "Atendimento via WhatsApp",
       action: "Chamar Agora",
-      link: "https://wa.me/5581998183444",
+      link: "https://wa.me/5584921674972",
     },
     {
       icon: Clock,

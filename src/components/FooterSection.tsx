@@ -61,7 +61,7 @@ const FooterSection = () => {
               </h4>
               <div className="space-y-4">
                 <a
-                  href="https://wa.me/5581998183444"
+                  href="https://wa.me/5584921674972"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-background/70 hover:text-background transition-colors text-sm group"
@@ -69,7 +69,7 @@ const FooterSection = () => {
                   <div className="w-8 h-8 rounded-lg bg-background/10 flex items-center justify-center group-hover:bg-background/20 transition-colors">
                     <Phone className="w-4 h-4" />
                   </div>
-                  <span>+55 81 99818-3444</span>
+                  <span>+55 84 92167-4972</span>
                 </a>
                 <a
                   href="mailto:contato@rcgoleiros.com"

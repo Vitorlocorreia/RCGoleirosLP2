@@ -75,11 +75,16 @@ const PromosSection = () => {
 
                 {/* CTA */}
                 <Button
-                  variant="outline"
+                  asChild
                   className="w-full md:w-auto font-bold"
-                  disabled
                 >
-                  EM BREVE
+                  <a
+                    href="https://pay.hotmart.com/U94179533I?bid=1776431879659"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    GARANTIR ACESSO
+                  </a>
                 </Button>
               </div>
             </div>

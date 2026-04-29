@@ -5,19 +5,14 @@ import { CheckCircle, Users, Download, ArrowRight, ShieldCheck } from "lucide-re
 import { motion } from "framer-motion";
 
 // ─── Configuração centralizada - edite aqui os seus links reais ───────────────
-const WHATSAPP_SUPPORT_NUMBER = "5581998183444";
+const WHATSAPP_SUPPORT_NUMBER = "5584921674972";
 
 const LINKS = {
-  mfit: "https://seu-link-mfit-aqui.com",
-  grupos: {
-    mensal: "https://chat.whatsapp.com/link-grupo-mensal",
-    trimestral: "https://chat.whatsapp.com/link-grupo-trimestral",
-    anual: "https://chat.whatsapp.com/link-grupo-anual",
-  },
+  mfit: "https://client.mfitpersonal.com.br/out/signup-link/NTM0NDQ2",
 } as const;
 
-type PlanKey = keyof typeof LINKS.grupos;
-const VALID_PLANS = Object.keys(LINKS.grupos) as PlanKey[];
+const VALID_PLANS = ["mensal", "trimestral", "anual"] as const;
+type PlanKey = typeof VALID_PLANS[number];
 
 // ─── Utilitários ──────────────────────────────────────────────────────────────
 
@@ -31,7 +26,7 @@ function buildWhatsAppUrl(plan: string): string {
       msg += "\n\n*Aqui estão as minhas informações do teste:*";
       if (data.nivel) msg += `\n- *Nível Atual:* ${data.nivel}`;
       if (data.idade) msg += `\n- *Faixa Etária:* ${data.idade}`;
-      if (data.foco)  msg += `\n- *Foco Principal:* ${data.foco}`;
+      if (data.foco) msg += `\n- *Foco Principal:* ${data.foco}`;
     }
   } catch {
     // localStorage indisponível ou JSON inválido - continua com a mensagem padrão
@@ -82,7 +77,6 @@ const Obrigado = () => {
     return VALID_PLANS.includes(raw as PlanKey) ? (raw as PlanKey) : "mensal";
   }, [searchParams]);
 
-  const groupLink = LINKS.grupos[plan];
   const whatsappUrl = useMemo(() => buildWhatsAppUrl(plan), [plan]);
 
   // Remove os dados do funil após uso para não vazar entre sessões
@@ -147,12 +141,12 @@ const Obrigado = () => {
             delay={0.2}
             iconBg="bg-[#25D366]/10"
             icon={<Users className="w-7 h-7 text-[#25D366]" aria-hidden />}
-            title="Passo 2: Comunidade Exclusiva"
-            description={`Entre no grupo exclusivo de alunos do plano ${plan.toUpperCase()} para receber novos treinos e avisos.`}
+            title="Passo 2: Liberação de Acesso"
+            description="Envie uma mensagem no nosso WhatsApp informando seu cadastro para que possamos liberar seu acesso na turma correta."
             action={
               <Button asChild className="w-full md:w-auto font-bold uppercase tracking-wide bg-[#25D366] hover:bg-[#128C7E]">
-                <a href={groupLink} target="_blank" rel="noreferrer">
-                  ENTRAR NO GRUPO <Users className="ml-2 w-4 h-4" aria-hidden />
+                <a href={whatsappUrl} target="_blank" rel="noreferrer">
+                  SOLICITAR LIBERAÇÃO <Users className="ml-2 w-4 h-4" aria-hidden />
                 </a>
               </Button>
             }
